@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import sys
 from pathlib import Path
-from mysite.private.django_key import DJANGO_SECRET_KEY
+from mysite.private.django_key import DJANGO_SECRET_KEY, PGSQL_USER, PGSQL_PSW
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,13 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'binance_klines',
-        'USER': 'postgres',
-        'PASSWORD': 'GltltiC_Pg_86_x6r',
-        'HOST': 'localhost',
-        'PORT': '5432',        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'binance_klines',
-        'USER': 'postgres',
-        'PASSWORD': 'GltltiC_Pg_86_x6r',
+        'USER': PGSQL_USER,
+        'PASSWORD': PGSQL_PSW,
         'HOST': 'localhost',
         'PORT': '5432',
     }
