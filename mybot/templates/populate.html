@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+<body>
+<form action="{% url 'populate' %}" method="post">
+  {% csrf_token %}
+  <label for="symbol_list">Seleziona il simbolo:</label>
+  <select name="symbol_list">
+    {% for symbol in symbol_list %}
+      <option value="{{ symbol }}">{{ symbol }}</option>
+    {% endfor %}
+  </select>
+  <label for="intervals">Seleziona l'intervallo:</label>
+  <select name="intervals">
+      <option value= "1m" > 1 Minuto </option>
+      <option value= "3m" > 3 Minuti </option>
+      <option value= "5m" > 5 Minuti </option>
+      <option value= "15m" > 15 Minuti </option>
+      <option value= "30m" > 30 Minuti </option>
+      <option value= "1h" > 1 ora </option>
+      <option value= "2h" > 2 ore </option>
+      <option value= "3h" > 3 ore </option>
+      <option value= "4h" > 4 ore </option>
+      <option value= "6h" > 6 ore </option>
+      <option value= "8h" > 8 ore </option>
+      <option value= "12h" > 12 ore </option>
+      <option value= "1d" > 1 giorno </option>
+      <option value= "3d" > 3 giorni </option>
+      <option value= "1w" > 1 settimana </option>
+      <option value= "1M" > 1 mese </option>
+  </select>
+    <br>
+  <label for="start_date">Start Date:</label>
+  <input type="text" id="start_date" name="start_date">
+  <br>
+
+  <input type="submit" name="populate" value="Populate">
+</form>
+<script>
+$(document).ready(function() {
+  $("#start_date").datepicker();
+});
+</script>
+</body>
+</html>

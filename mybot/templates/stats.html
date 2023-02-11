@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stats</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Ticker</th>
+            <th>Tot. recs.</th>
+            <th>First Date</th>
+            <th>Last Date</th>
+        </tr>
+        <tr>
+            {% for symbol in symbols %}
+            <td>{{ symbol.symbol }}</td>
+            <td>{{ symbol.num_records }}</td>
+            <td>{{ symbol.min_date }}</td>
+            <td>{{ symbol.max_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

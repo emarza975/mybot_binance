@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+</div>
+<div>
+  <table>
+  <tr>
+    <th>Open Time</th>
+    <th>Symbol</th>
+    <th>Open Price</th>
+    <th>High Price</th>
+    <th>Low Price</th>
+    <th>Close Price</th>
+    <th>Volume</th>
+    <th>Close Time</th>
+    <th>Quote Asset Volume</th>
+    <th>Number of Trades</th>
+    <th>Taker Buy Base Asset Volume</th>
+    <th>Taker Buy Quote Asset Volume</th>
+    <th>Ignore</th>
+  </tr>
+  {% for price in prices %}
+    <tr>
+      <td>{{ price.open_time }}</td>
+      <td>{{ price.symbol }}</td>
+      <td>{{ price.open_price }}</td>
+      <td>{{ price.high_price }}</td>
+      <td>{{ price.low_price }}</td>
+      <td>{{ price.close_price }}</td>
+      <td>{{ price.volume }}</td>
+      <td>{{ price.close_time }}</td>
+      <td>{{ price.quote_asset_volume }}</td>
+      <td>{{ price.number_of_trades }}</td>
+      <td>{{ price.taker_buy_base_asset_volume }}</td>
+      <td>{{ price.taker_buy_quote_asset_volume }}</td>
+      <td>{{ price.ignore }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+</body>
+</html>

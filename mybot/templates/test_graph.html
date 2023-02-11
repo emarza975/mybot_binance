@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+  </head>
+  <body>
+    <div id="container" style="height: 500px; min-width: 310px"></div>
+    <script>
+      $(document).ready(function() {
+        Highcharts.stockChart('container', {
+          rangeSelector: {
+            selected: 1
+          },
+          title: {
+            text: '{{ symbol }} Candlestick Chart'
+          },
+          series: [{
+            type: 'candlestick',
+            name: '{{ symbol }}',
+            data: {{ data|safe }},
+            dataGrouping: {
+              units: [[
+                'week',
+                [1]
+              ], [
+                'month',
+                [1, 2, 3, 4, 6]
+              ]]
+            }
+          }]
+        });
+      });
+    </script>
+  </body>
+</html>
